@@ -1,51 +1,67 @@
-// // Check if the person is old enough to enter the nightclub (21)
-// // Log a suitable message to the console in both cases
-
-// let age = 21
-
-// // if less than 21 -> "You can not enter the club!"
-// // else            -> "Welcome!"
-
-// if (age <= 20) {
-//     console.log("You can not enter the club!")
-// } else {
-//     console.log("Welcome!")
-// }
-
-// if (age < 100) {
-//     console.log("Not eligible")
-// } else if (age === 100) {
-//     console.log("Here is your birthday card from the King!")
-// } else {
-//     console.log("Not eligible, you have already celebrated your birthday")
-// }
-
-// if (sum <= 20) {
-//     console.log("Do you want to draw another card?")
-// } else if (sum === 21) {
-//     console.log("Blackjack!")
-// } else {
-//     console.log("You are out of the game!")
-// }
-
-let firstCard = 10
-let secondCard = 11
-let sum = firstCard + secondCard + 4
+// 2. Create the player object. Give it two keys, name and chips, and set their values
+let player = {
+    name: "Per",
+    chips: 200
+}
+let cards = []
+let sum = 0
 let hasBlackJack = false
-let isAlive = true
-// 1. Declare a variable called message and assign its value to an empty string
+let isAlive = false
 let message = ""
+let messageEl = document.getElementById("message-el")
+let sumEl = document.getElementById("sum-el")
+let cardsEl = document.getElementById("cards-el")
+// 3. Grab ahold of the player-el paragraph and store it in a variable called playerEl
+let playerEl = document.getElementById("player-el")
 
-// 2. Reassign the message variable to the string we're logging out
-if (sum <= 20) {
-    message = "Do you want to draw a new card? 🙂"
-} else if (sum === 21) {
-    message = "Wohoo! You've got Blackjack! 🥳"
-    hasBlackJack = true
-} else {
-    message = "You're out of the game! 😭"
-    isAlive = false
+// 4. Render the player's name and chips in playerEl
+playerEl.textContent = player.name + ": $" + player.chips
+
+function getRandomCard() {
+    let randomNumber = Math.floor( Math.random()*13 ) + 1
+    if (randomNumber > 10) {
+        return 10
+    } else if (randomNumber === 1) {
+        return 11
+    } else {
+        return randomNumber
+    }
 }
 
-// 3. Log it out!
-console.log(message)
+function startGame() {
+    isAlive = true
+    let firstCard = getRandomCard()
+    let secondCard = getRandomCard()
+    cards = [firstCard, secondCard]
+    sum = firstCard + secondCard
+    renderGame()
+}
+
+function renderGame() {
+    cardsEl.textContent = "Cards: "
+    for (let i = 0; i < cards.length; i++) {
+        cardsEl.textContent += cards[i] + " "
+    }
+    
+    sumEl.textContent = "Sum: " + sum
+    if (sum <= 20) {
+        message = "Do you want to draw a new card?"
+    } else if (sum === 21) {
+        message = "You've got Blackjack!"
+        hasBlackJack = true
+    } else {
+        message = "You're out of the game!"
+        isAlive = false
+    }
+    messageEl.textContent = message
+}
+
+
+function newCard() {
+    if (isAlive === true && hasBlackJack === false) {
+        let card = getRandomCard()
+        sum += card
+        cards.push(card)
+        renderGame()        
+    }
+}

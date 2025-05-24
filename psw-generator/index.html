@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="index.css">
+    </head>
+    <body>
+        <h1>Generate a</h1>
+        <h1><span style="color: rgba(74, 223, 134, 1)">Random Password</span></h1>
+        <h3>Never use a insecure password again!</h3>
+        <h3>Set password length (default: 12): 
+            <input type="number" id="password-length" value="12" min="1" class="password-length-input">
+        </h3>
+        <button onclick="generatePassword()">Generate Password</button>
+        <hr style="border: none; height: 1px; background-color: rgba(47, 62, 83, 1);">
+        <div style="display: flex; gap: 20px;">
+            <p id="password1" class="password-container"></p>
+            <p id="password2" class="password-container"></p>
+        </div>
+        <button onclick="copyPassword()">Copy Password</button>
+        <script src="index.js"></script>
+    </body>
+</html>

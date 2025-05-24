@@ -1,0 +1,62 @@
+body {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', Arial, sans-serif;
+    /* background-image: url("images/table.png"); */
+    background-size: cover;
+    background-color: rgba(31, 41, 55, 1);
+    font-weight: bold;
+    color: white;
+    text-align: left;
+    padding-left: 40px;
+}
+
+h1 {
+    font-weight: extrabold;
+}
+
+h3 {
+    color: rgba(213, 212, 216, 1);
+}
+
+button {
+    color: white;
+    /* width: 150px; */
+    height: 25px;
+    background: rgba(16, 185, 129, 1);
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    margin-bottom: 2px;
+    margin-top: 20px;
+}
+
+.password-container {
+    border: none;
+    width: 250px;
+    height: 20px;
+    border-radius: 6px;
+    background: rgba(39, 53, 73, 1);
+    padding: 5px 15px;
+    color: rgba(85, 249, 145, 1);
+    font-weight: bold;
+    margin: 2px 0;
+    margin-top: 20px;
+}
+
+#password {
+    margin: 0;
+}
+
+.password-length-input {
+    width: 50px;
+    height: 25px;
+    background: rgba(39, 53, 73, 1);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: large;
+    text-align: right;
+}
